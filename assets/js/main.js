@@ -29,7 +29,15 @@ const root = new Vue({
 
         removeMovie(index){
             this.movies.splice(index, 1)
-        }
+        },
+
+    
     }
 
+});
+
+document.addEventListener("keydown", function(event){
+    if(event.code === "Enter"){
+        root.addMovie()
+    }
 })
