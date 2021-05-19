@@ -13,7 +13,8 @@
 </head>
 
 <body>
-    <div id="root">
+    <div id="root" class="container">
+        <h1 class="title">Movie Night</h1>
         <div class="addMovie">
             <input type="text" v-model="newMovie" placeholder="Add a movie to watch">
             <button @click="addMovie">Add Movie</button>
@@ -22,6 +23,7 @@
         <!-- Movies to watch -->
         <div class="movies" v-if="movies.length > 0">
             <div class="movie" v-for="(movie, index) in movies" contenteditable="true">{{movie}}
+                <!-- <i class="fas fa-check-circle" @click=""></i> -->
                 <i class="fas fa-times-circle" @click="removeMovie(index)"></i>
             </div>
         </div>

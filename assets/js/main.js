@@ -7,7 +7,8 @@ Cliccando sulla "X" l'utente puó cancellare una task
 Se non ci sono piu task nella lista, mostrate un messaggio tipo "Nulla da fare"
 Inoltre L'utente vuole poter modificare una task giá inserita
 ma vuole anche poter indicare che la task é stata completata (con un icona cliccabile)
-Quando l'utente inserisce una task ha due modi per salvarla: o preme il pulsante add o preme il taso Enter della tastiera. Attenzione: l'utente non deve inserire tasks vuote ma almeno un tot di caratteri. */
+Quando l'utente inserisce una task ha due modi per salvarla: o preme il pulsante add o preme il taso Enter della tastiera.
+Attenzione: l'utente non deve inserire tasks vuote ma almeno un tot di caratteri. */
 
 const root = new Vue({
     el: "#root",
@@ -23,8 +24,10 @@ const root = new Vue({
 
     methods:{
         addMovie(){
+            if(this.newMovie.length >= 1){
             this.movies.push(this.newMovie),
             this.newMovie = ""
+            }
         },
 
         removeMovie(index){

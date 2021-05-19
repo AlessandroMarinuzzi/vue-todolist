@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-image: url("../img/Movie_Theater.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* .active{
+    color: green;
+} */
+
+.container{
+    width: 40%;
+    margin: 0 auto;
+    padding: 100px;
+    text-align: center;
+}
+
+.title{
+    color: gold;
+    font-size: 60px;
+}
+
+.addMovie{
+    background-color: aliceblue;
+    border-radius: 10px;
+    margin: 30px auto;
+    padding: 25px;
+}
+input,
+button{
+    font-size: 18px;
+}
+
+.movies{
+    background-color: aliceblue;
+    padding: 25px;
+    border-radius: 10px;
+}
+.movie{
+    background-color: wheat;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 7px;
+    font-size: 18px;
+    padding: 5px;
+}
