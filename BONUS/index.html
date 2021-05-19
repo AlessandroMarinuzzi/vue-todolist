@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Todo List</title>
+</head>
+
+<body>
+    <div id="root" class="container">
+        <h1 class="title">Movie Night</h1>
+        <div class="addMovie">
+            <h4 class="sectionTitle">Movie Must Watch</h4>
+            <input type="text" v-model="newMovie" placeholder="Add a movie to watch">
+            <button @click="addMovie">Add Movie</button>
+        </div>
+
+        <!-- Movies to watch -->
+        <div class="movies" v-if="movies.length > 0">
+            <h4 class="sectionTitle">Selected Movies</h4>
+            <div class="movie" v-for="(movie, index) in movies" contenteditable="true">{{movie}}
+                <i class="fas fa-check-circle" @click="alreadyWatched(index)"></i>
+                <i class="fas fa-times-circle" @click="removeMovie(index)"></i>
+            </div>
+        </div>
+
+        <div class="nothingToWatch" v-else>
+            <p class="noShow">Nothing to watch</p>
+        </div>
+        <!-- /Movies to watch -->
+
+        <!-- Movies Already Watched -->
+        <div class="alreadyWatched" v-if="watchedMovies.length > 0">
+            <h4 class="sectionTitle">Watched Movies</h4>
+            <div class="movie" v-for="(watchedMovie, index) in watchedMovies">{{watchedMovie}}
+                <i class="fas fa-undo-alt" @click="undo(index)"></i>
+            </div>
+        </div>
+        <!-- /Movies Already Watched -->
+    </div>
+    <!-- VUE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- My JS -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
