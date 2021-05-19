@@ -21,11 +21,11 @@
 
         <!-- Movies to watch -->
         <div class="movies" v-if="movies.length > 0">
-            <div class="movie" v-for="(movie, index) in movies" >{{movie}}
+            <div class="movie" v-for="(movie, index) in movies" contenteditable="true">{{movie}}
                 <i class="fas fa-times-circle" @click="removeMovie(index)"></i>
             </div>
         </div>
-        
+
         <div class="nothingToWatch" v-else>
             <p>Nothing to watch</p>
         </div>
