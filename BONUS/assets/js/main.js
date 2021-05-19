@@ -21,6 +21,7 @@ const root = new Vue({
             "Interferenze, regia di Ryan Eslinger"
         ],
         watchedMovies:[],
+        approvedMovies:[]
     },
 
     methods:{
@@ -43,7 +44,13 @@ const root = new Vue({
         undo(index){
             this.movies.push(this.watchedMovies[index])
             this.watchedMovies.splice(index, 1)
+        },
+
+        approve(index){
+            this.approvedMovies.push(this.movies[index])
+            this.movies.splice(index, 1)
         }
+
     }    
 
 

@@ -13,36 +13,44 @@
 </head>
 
 <body>
-    <div id="root" class="container">
-        <h1 class="title">Movie Night</h1>
-        <div class="addMovie">
-            <h4 class="sectionTitle">Movie Must Watch</h4>
-            <input type="text" v-model="newMovie" placeholder="Add a movie to watch">
-            <button @click="addMovie">Add Movie</button>
-        </div>
+    <div id="root">
+        <div class="container">
+            <h1 class="title">Movie Night</h1>
+            <div class="addMovie">
+                <h4 class="sectionTitle">Movie Must Watch</h4>
+                <input type="text" v-model="newMovie" placeholder="Add a movie to watch">
+                <button @click="addMovie">Add Movie</button>
+            </div>
 
-        <!-- Movies to watch -->
-        <div class="movies" v-if="movies.length > 0">
-            <h4 class="sectionTitle">Selected Movies</h4>
-            <div class="movie" v-for="(movie, index) in movies" contenteditable="true">{{movie}}
-                <i class="fas fa-check-circle" @click="alreadyWatched(index)"></i>
-                <i class="fas fa-times-circle" @click="removeMovie(index)"></i>
+            <!-- Movies to watch -->
+            <div class="movies" v-if="movies.length > 0">
+                <h4 class="sectionTitle">Selected Movies</h4>
+                <div class="movie" v-for="(movie, index) in movies" contenteditable="true">{{movie}}
+                    <i class="fas fa-check-circle" @click="alreadyWatched(index)"></i>
+                    <i class="fas fa-thumbs-up" @click="approve(index)"></i>
+                    <i class="fas fa-times-circle" @click="removeMovie(index)"></i>
+                </div>
+            </div>
+
+            <div class="nothingToWatch" v-else>
+                <p class="noShow">Movies List Empty</p>
+            </div>
+            <!-- /Movies to watch -->
+
+            <!-- Movies Already Watched -->
+            <div class="alreadyWatched" v-if="watchedMovies.length > 0">
+                <h4 class="sectionTitle">Watched Movies</h4>
+                <div class="movie" v-for="(watchedMovie, index) in watchedMovies">{{watchedMovie}}
+                    <i class="fas fa-undo-alt" @click="undo(index)"></i>
+                </div>
+            </div>
+            <!-- /Movies Already Watched -->
+            <div class="approvedMovies" v-if="approvedMovies.length > 0">
+                <h4 class="sectionTitle">Approved Movies</h4>
+                <div class="movie" v-for="(approvedMovie, index) in approvedMovies">{{approvedMovie}}</div>
+                
             </div>
         </div>
-
-        <div class="nothingToWatch" v-else>
-            <p class="noShow">Nothing to watch</p>
-        </div>
-        <!-- /Movies to watch -->
-
-        <!-- Movies Already Watched -->
-        <div class="alreadyWatched" v-if="watchedMovies.length > 0">
-            <h4 class="sectionTitle">Watched Movies</h4>
-            <div class="movie" v-for="(watchedMovie, index) in watchedMovies">{{watchedMovie}}
-                <i class="fas fa-undo-alt" @click="undo(index)"></i>
-            </div>
-        </div>
-        <!-- /Movies Already Watched -->
     </div>
     <!-- VUE JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
